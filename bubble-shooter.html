@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<meta name="viewport" content="width=628.0, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"
+      xmlns="http://www.w3.org/1999/html"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>泡泡狂人</title>
+<p align="center"></p>
+<html lang="">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="bubble-shooter.js"></script>
+    <meta charset="utf8">
+
+
+</head>
+
+<body>
+    <div style="text-align: center;"><div><canvas id="viewport" width="628" height="628"></canvas></div></div> <!--遊戲畫面的位置-->
+    </div>
+
+</body>
+<script type="text/javascript" src="bubble-shooter.js"></script>
+<script>
+    function express(){
+       // const form = document.forms['form'];
+        //const studentIdElement = document.getElementById("studentId");
+       // const studentId = studentIdElement.value;
+        //const studentId = form.elements.studentId.value;
+        //const pinElement = document.getElementById("pin");
+        //const pin = pinElement.value;
+        //const pin = form.elements.pin.value;
+
+        const form=document.forms['form'];
+        const studentId = form.elements.studentId.value;
+        const pin = form.elements.pin.value;
+        //const studentId = document.getElementById("studentId");
+        //const pin = document.getElementById("pin");
+        $.ajax({
+            url: 'getscore.php',
+            type: 'POST',
+            dataType: 'text',
+            data:  "&studentId="+studentId+"&pin="+pin,
+            success:function(){
+                alert("成功上傳成績");
+                //location.href="http://120.110.115.168/index/Bubble-Shooter-HTML5-master/bubble-shooter.html";
+            }
+
+        })
+        function undo(){
+            alert("成功上傳成績");
+        }
+    }
+</script>
+
+</html >
